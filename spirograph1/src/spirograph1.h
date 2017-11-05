@@ -8,7 +8,8 @@
 #ifndef spirograph1_h
 #define spirograph1_h
 
-#include "ofxiOS.h"
+//#include "ofxiOS.h"
+#include "scene.h"
 
 class spirograph1 {
 public:
