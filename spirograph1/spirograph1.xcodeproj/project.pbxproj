@@ -10,7 +10,8 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
-		4079F9EC1FAD1970008E0701 /* spirograph1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4079F9EB1FAD1970008E0701 /* spirograph1.m */; };
+		404553941FAE945E00076C35 /* scene.m in Sources */ = {isa = PBXBuildFile; fileRef = 404553931FAE945E00076C35 /* scene.m */; };
+		4079F9EC1FAD1970008E0701 /* spirograph1.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4079F9EB1FAD1970008E0701 /* spirograph1.mm */; };
 		5326AEA810A23A0500278DE6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5326AEA710A23A0500278DE6 /* CoreLocation.framework */; };
 		53F323EB10A20EDB00E0DAE4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */; };
 		678E130817951530005B6D19 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E130717951530005B6D19 /* Icon@2x.png */; };
@@ -54,7 +55,8 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* ofxiOS_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxiOS_Prefix.pch; sourceTree = "<group>"; };
-		4079F9EB1FAD1970008E0701 /* spirograph1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = spirograph1.m; sourceTree = "<group>"; };
+		404553931FAE945E00076C35 /* scene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = scene.m; sourceTree = "<group>"; };
+		4079F9EB1FAD1970008E0701 /* spirograph1.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = spirograph1.mm; sourceTree = "<group>"; };
 		4079F9ED1FAD198D008E0701 /* spirograph1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = spirograph1.h; sourceTree = "<group>"; };
 		5326AEA710A23A0500278DE6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -208,7 +210,8 @@
 			children = (
 				E4D8936B11527B74007E1F53 /* main.mm */,
 				E4D8936D11527B74007E1F53 /* ofApp.mm */,
-				4079F9EB1FAD1970008E0701 /* spirograph1.m */,
+				4079F9EB1FAD1970008E0701 /* spirograph1.mm */,
+				404553931FAE945E00076C35 /* scene.m */,
 				4079F9ED1FAD198D008E0701 /* spirograph1.h */,
 				E4D8936C11527B74007E1F53 /* ofApp.h */,
 			);
@@ -321,8 +324,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				404553941FAE945E00076C35 /* scene.m in Sources */,
 				E4D8936E11527B74007E1F53 /* main.mm in Sources */,
-				4079F9EC1FAD1970008E0701 /* spirograph1.m in Sources */,
+				4079F9EC1FAD1970008E0701 /* spirograph1.mm in Sources */,
 				E4D8936F11527B74007E1F53 /* ofApp.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
