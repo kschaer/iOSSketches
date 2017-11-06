@@ -6,6 +6,7 @@
 #include "spirograph1.h"
 #include "ofxSceneManager.h"
 #include "wobblyText.h"
+#include "feathery.h"
 
 class ofApp : public ofxiOSApp{
     
