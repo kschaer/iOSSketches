@@ -26,7 +26,7 @@ public:
     void touchMoved(ofTouchEventArgs & touch);
 
     
-    bool bSmooth;
+    //bool bSmooth;
     float counter;
     
     ofTrueTypeFont myFont;

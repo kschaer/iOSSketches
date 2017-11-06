@@ -5,6 +5,7 @@ void ofApp::setup(){
     
    // spiroText.setup();
     sceneManager.addScene(ofPtr<ofxScene>(new spirograph1));
+    sceneManager.addScene(ofPtr<ofxScene>(new wobblyText));
     //sceneManager.addScene(ofPtr<ofxScene>(new SecondScene));
     sceneManager.setExitByTime(false);
     //sceneManager.setSceneDuration(0.3, 1.5, 0.3);

@@ -5,16 +5,18 @@
 //  Created by Kaitlin Schaer on 11/3/17.
 //
 
-#import <Foundation/Foundation.h>
+//#import <Foundation/Foundation.h>
 #include "spirograph1.h"
 
 //-----------------------------------------------
 void spirograph1::setup(){
+    points.clear();
+    
     ofEnableAntiAliasing();
     counter = 0;
     ofSetCircleResolution(50);
     ofBackground(0);
-    bSmooth = true;
+    //bSmooth = true;
     
     ofNoFill();
     
@@ -97,7 +99,6 @@ void spirograph1::update(){
     posX = ofLerp(posX, tempX, .2);
     posY = ofLerp(posY, tempY, .2);
     
-    
 
     textBounding = myFont.getStringBoundingBox(myText,posX ,posY);
     centerText.set(posX-textBounding.width/2,posY+textBounding.height/2);
@@ -121,7 +122,9 @@ void spirograph1::update(){
 }
 //-----------------------------------------------
 void spirograph1::draw(){
+    
     ofBackground(0, 0, 0);
+    
     ofSetColor(lightness);
     ofPushMatrix();
 
@@ -150,13 +153,14 @@ void spirograph1::draw(){
             ofFill();
             
             ofDrawCircle(movedPoints,3+3*((j+frameCount)% charPoints.size())%4);
-            
 
-            
+            //cout << charPoints.size() << endl;
+
+
             
         }
     }
-    
+
     
     ofSetColor(0,150);
     myFont.drawStringAsShapes(myText, centerText.x,centerText.y);
@@ -166,11 +170,7 @@ void spirograph1::draw(){
 }
 //-----------------------------------------------
 void spirograph1::touchDown(ofTouchEventArgs & touch){
-    //bSmooth = true;
-    lightness = lightness+5;
-    if (lightness >250){
-        lightness = 0;
-    }
+
     tempX = touch.x;
     tempY = touch.y;
 }
@@ -184,9 +184,6 @@ void spirograph1::touchUp(ofTouchEventArgs & touch){
 
 //-----------------------------------------------
 void spirograph1::touchMoved(ofTouchEventArgs & touch){
-    
-
-    
 
     tempX = touch.x;
     tempY = touch.y;

@@ -1,3 +1,4 @@
 ofxAssimpModelLoader
+ofxHersheyFont
 ofxSceneManager
 ofxTween

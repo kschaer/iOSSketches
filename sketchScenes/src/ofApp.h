@@ -5,7 +5,7 @@
 
 #include "spirograph1.h"
 #include "ofxSceneManager.h"
-
+#include "wobblyText.h"
 
 class ofApp : public ofxiOSApp{
     
