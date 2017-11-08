@@ -40,7 +40,11 @@ void kaleidoscope::setup(){
     fontBox.set(myFont.getStringBoundingBox(myText, 0, 0));
     fontWidth = fontBox.width;
     fontHeight = fontBox.height;
-    textFBO.allocate(10+fontWidth,fontHeight, GL_RGBA);
+    
+    
+    oneFBO.allocate(10+fontWidth,fontHeight, GL_RGBA);
+    
+    textFBO.allocate(10+fontWidth+30*5,fontHeight*5, GL_RGBA);
     textMover.set(5+fontBox.width-(fontBox.width+fontBox.x),fontBox.height-(fontBox.height + fontBox.y));
     
     // baseline.set(0,0);
@@ -68,7 +72,7 @@ void kaleidoscope::draw(){
     ofBackground(0,0,0);
 
 
-    textFBO.begin();
+    oneFBO.begin();
     ofClear(0,0,0,0);
 
 
@@ -76,18 +80,54 @@ void kaleidoscope::draw(){
 
     ofSetLineWidth(3);
     myFont.drawString(myText, textMover.x-1, textMover.y);
+    oneFBO.end();
+//
+//    ofPushMatrix();
+//    ofScale(.8,.8);
+//    oneFBO.draw(100,100);
+//    ofPopMatrix();
+
+    
+    
+    
+    ofMesh oneMesh;
+    ofPolyline baseLine;
+    for(int i = 0; i < width/2; i++){
+        baseLine.addVertex(ofPoint(width/4+i,300));
+    }
+    baseLine.draw();
+    
+    
+    for (int i = 0 ; i < baseLine.size(); i++){
+        
+    }
+    
+    
+    //------------
+    
+    
+    textFBO.begin();
+    ofClear(0,0,0,0);
+    ofSetColor(ofMap(posX,0,width,50,100),ofMap(posY,0,height,130,40),200+50*sin(time));
+    for( int i = 0; i <4 ; i++){
+        ofPushMatrix();
+        
+        myFont.drawString(myText, textMover.x-1+30*i, textMover.y+fontHeight*i);
+        ofPopMatrix();
+    }
     textFBO.end();
-    
-    ofPushMatrix();
-    ofScale(.8,.8);
-    textFBO.draw(100,100);
-    ofPopMatrix();
-    
-    
+
+        ofPushMatrix();
+        ofScale(.8,.8);
+       // textFBO.draw(100,100);
+        ofPopMatrix();
     
     
-    ofMesh mainMesh;
-    mainMesh.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+    
+    
+    
+    //ofMesh mainMesh;
+    //mainMesh.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
     for (int i = 0 ; i < baseLine.size(); i++){
         
     }
@@ -114,8 +154,8 @@ void kaleidoscope::draw(){
         ofPoint diff = b-a;
         diff.normalize();
         diff.rotate(90, ofPoint(0,0,1));
-        myMesh.addVertex( smoothLine[i] + diff * 180+50*sin(time-.06*i));
-        myMesh.addVertex( smoothLine[i] - diff * 180+50*cos(time-.04*i));
+        myMesh.addVertex( smoothLine[i] + diff * 180+50*sin(time-.06*i+.01*posY));
+        myMesh.addVertex( smoothLine[i] - diff * 180+50*cos(time-.04*i-.01*posX));
         
         myMesh.addColor(ofColor(70));
         myMesh.addColor(ofColor(255));
@@ -135,7 +175,7 @@ void kaleidoscope::draw(){
 
 
                         myMesh.addTexCoord(  textFBO.getTexture().getCoordFromPoint(x, 0)   );
-                        myMesh.addTexCoord(  textFBO.getTexture().getCoordFromPoint(x,fontHeight)   );
+                        myMesh.addTexCoord(  textFBO.getTexture().getCoordFromPoint(x,fontHeight*5)   );
             
         }
     textFBO.getTexture().bind();

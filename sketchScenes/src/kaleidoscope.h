@@ -53,6 +53,7 @@ public:
     ofImage textImage;
     
     ofFbo textFBO;
+    ofFbo oneFBO;
     
     
 };

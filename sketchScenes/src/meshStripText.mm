@@ -20,7 +20,9 @@ void meshStripText::setup(){
     width = ofGetWidth();
     height = ofGetHeight();
     
-    myText = "0";
+   // of3dPrimitive primitive;
+    
+    myText = "O";
     myFontPath = myFont.getPath(myText,41);
 //    myFontPath.setStrokeColor(255);
 //    myFontPath.setFillColor(ofColor(255,20,100));
@@ -54,11 +56,23 @@ void meshStripText::update(){
 void meshStripText::draw(){
     ofBackground(0,0,0);
     ofPushMatrix();
+//    ofTranslate(346,1449);
+//    //ofTranslate(-tempX,-tempY);
+//    ofTranslate(-785,-1025);
+    ofTranslate(width/2, height/2);
+    //ofTranslate(0,0,-300);
 
-    ofRotateY(180+180*sin(posY));
-    ofTranslate(width/4, 2*height/3);
+    ofPushMatrix();
+    ofPoint  translatePoint;
+    translatePoint.set(-1167,-614);
+    ofRotateX(posY+90*sin(time+.01*posY));
+    ofRotateY(posX+90*sin(time+.01*posX));
+   // ofRotateZ(180*sin(time));
+    ofTranslate(translatePoint);
 
-    //ofTranslate(width/2,0);
+    
+    cout << "x " << tempX << " y " << tempY << endl;
+    
     ofMesh myMesh;
     myMesh.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
 
@@ -66,39 +80,63 @@ void meshStripText::draw(){
         vector <ofVec2f> & wordPoints = points[i];
         for (int j = 0; j < wordPoints.size(); j++){
             
-            //ofDrawCircle(wordPoints[j], 5);
+            ofPushMatrix();
+
+          // ofRotateY(.01*j);
+//            ofPushMatrix();
+//            ofRotateY(posY*j);
+//            ofPoint rotatePoint;
+//            rotatePoint.set(300,0);
+//            ofDrawCircle(rotatePoint, 5);
+//            ofPopMatrix();
+
+            
             int j_m_1 = MAX(j-1,0);
             int j_p_1 = MIN(j+1,wordPoints.size()-1);
             ofPoint a = wordPoints[j_m_1];
             ofPoint b = wordPoints[j_p_1];
-            
+
             distance += (wordPoints[j] - a).length();
             
             ofPoint diff = b-a;
             diff.normalize();
             diff.rotate(90, ofPoint(0,0,1));
-            //myMesh.addVertex(wordPoints[i+1] + diff *50);
+            
+            
+            ofPoint zMod;
+            zMod.set(0,0, -300+(j+1)%100-.2*posY*sin(.1*j-time)-.1*posX*cos(.2*j+.3*time));
+            
+            
+            ofPoint finalPoints1;
+            finalPoints1.set( wordPoints[j] + diff * (90+50*cos(time- .1*j-2*wiggleMod)) + zMod);
+            
+            ofPoint finalPoints2;
+            finalPoints2.set(wordPoints[j]  - diff *  (90+350*sin(time- .1*j-2*wiggleMod*.05*j))+ zMod);
+            
+           // diff.rotate(0, .001*posY+j, 0);
 
-            myMesh.addVertex( wordPoints[j] + diff * (90+50*cos(time- .1*j-2*wiggleMod)));
-            myMesh.addColor(ofColor::white);
-
-            myMesh.addVertex( wordPoints[j] - diff *  (90+350*sin(time- .1*j-2*wiggleMod*.05*j)));
-            myMesh.addColor(ofColor::black);
-            myMesh.addColor(ofColor::black);
+//            myMesh.addVertex( wordPoints[j] + translatePoint+ diff * (90+50*cos(time- .1*j-2*wiggleMod)));
+//            myMesh.addColor(ofColor(255));
+//
+//            myMesh.addVertex( wordPoints[j] + translatePoint  - diff *  (90+350*sin(time- .1*j-2*wiggleMod*.05*j)));
+            myMesh.addVertex( ofPoint(finalPoints1.x,finalPoints1.y,zMod.z));
+            myMesh.addColor(ofColor(255));
+            
+            myMesh.addVertex( ofPoint(finalPoints2.x,finalPoints2.y,zMod.z));
+           // myMesh.addColor(ofColor(0));
+            myMesh.addColor(ofColor(0));
+           // myMesh.addColor(ofColor(0));
+    
 
             
-
-
-
-            
-
-
-
+            ofPopMatrix();
 
 
         }
     }
+    ofTranslate(width/2,height/2);
     myMesh.draw();
+    ofPopMatrix();
     ofPopMatrix();
 }
 //-----------------------------------------------
