@@ -72,7 +72,7 @@ void kaleidoscope::draw(){
     ofClear(0,0,0,0);
 
 
-    ofSetColor(40,140,210);
+    ofSetColor(240,255,110);
 
     ofSetLineWidth(3);
     myFont.drawString(myText, textMover.x-1, textMover.y);
@@ -102,9 +102,15 @@ void kaleidoscope::draw(){
         ofPoint a = smoothLine[i_m_1];
         ofPoint b = smoothLine[i_p_1];
         
-       distance += (smoothLine[i] - a).length();
-            //distance =(smoothLine[i] - a).length();
         
+       distance += (smoothLine[i] - a).length();
+            if (distance > 2000*(smoothLine[i] - a).length()){
+                distance = 0;
+            } else {
+                distance += (smoothLine[i] - a).length();
+
+            }
+    
         ofPoint diff = b-a;
         diff.normalize();
         diff.rotate(90, ofPoint(0,0,1));
@@ -117,7 +123,7 @@ void kaleidoscope::draw(){
             //float xMod = ofMap(tempY, 0, width, .001,1);
             
             
-            float x = (fontBox.width+10)/2 + (fontBox.width+10)/2 *sin(distance * ofMap(sin(time), -1, 1, 0.01, 0.001) + time*1.0);
+            float x = (fontBox.width+10)/2 + (fontBox.width+10)/2 *sin(distance * ofMap(sin(1*time*.6234), -1, 1, 0.001, 0.0001) +time);
             
             
             
@@ -125,11 +131,11 @@ void kaleidoscope::draw(){
            // float x = fontWidth/2 + (fontWidth/2 * sin(time-distance));
             //float x = (10+fontWidth)/2 + ((10+fontWidth)/2 * sin(distance * ofMap(sin(ofMap(tempY,0,height,0.000001,1)*time), -1, 1, 0.01, 0.001) + time*.01));
 
-            cout << distance << endl;
+          //  cout << xMod << endl;
 
 
-                        myMesh.addTexCoord(  myFont.getFontTexture().getCoordFromPoint(x, 0)   );
-                        myMesh.addTexCoord(  myFont.getFontTexture().getCoordFromPoint(x,1.5*height)   );
+                        myMesh.addTexCoord(  textFBO.getTexture().getCoordFromPoint(x, 0)   );
+                        myMesh.addTexCoord(  textFBO.getTexture().getCoordFromPoint(x,fontHeight)   );
             
         }
     textFBO.getTexture().bind();
