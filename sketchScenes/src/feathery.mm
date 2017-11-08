@@ -63,7 +63,7 @@ void feathery::draw(){
     
     for (int i = 0; i < 720; i++){
         for (int j = 0; j <2; j++){
-            ofRotateZ(360/j-120);
+            ofRotateZ(360/(j+1)-120);
 
             ofPushMatrix();
             //ofSetLineWidth(2.5+2*sin(time-.1*i));

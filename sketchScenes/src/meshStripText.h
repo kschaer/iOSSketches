@@ -1,19 +1,18 @@
 //
-//  wobblyText.h
+//  meshStripText.h
 //  sketchScenes
 //
 //  Created by Kaitlin Schaer on 11/6/17.
 //
 
-#ifndef wobblyText_h
-#define wobblyText_h
+#ifndef meshStripText_h
+#define meshStripText_h
 
-#include "ofxScene.h"
 //#include "ofxHersheyFont.h"
+#include "ofxScene.h"
 
-class wobblyText : public ofxScene{
+class meshStripText : public ofxScene{
 public:
-    
     void setup();
     void update();
     void draw();
@@ -23,31 +22,29 @@ public:
     void touchUp(ofTouchEventArgs & touch);
     void touchMoved(ofTouchEventArgs & touch);
     
+    float time;
+    
+    float width;
+    float height;
+    
+    string myText;
+    float posX;
+    float posY;
+    
+    float tempX;
+    float tempY;
+    
     ofxHersheyFont myFont;
     ofPath myFontPath;
     ofPath outline;
     vector <vector <ofVec2f> > points;
-    ofPath bgPaths;
     
-    string myText;
     
-    ofPolyline drawnLine;
-    ofPolyline smoothLine;
-
-
-    float time;
-    float width;
-    float height;
+    float distance;
+    
     float wiggleMod;
-    float wiggleMod2;
     
-    float posY;
-    float posX;
-    float tempY;
-    float tempX;
-    float lerpX;
-    float lerpY;
     
 };
 
-#endif /* wobblyText_h */
+#endif /* meshStripText_h */

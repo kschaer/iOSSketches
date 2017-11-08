@@ -11,6 +11,8 @@
 //-----------------------------------------------
 void wobblyText::setup(){
     points.clear();
+    drawnLine.clear();
+    smoothLine.clear();
     
     time = 0;
     wiggleMod = 0;
@@ -41,6 +43,7 @@ void wobblyText::setup(){
         points.push_back(linePoints);
     }
     
+    
 }
 
 //-----------------------------------------------
@@ -52,11 +55,36 @@ void wobblyText::update(){
     
     wiggleMod = ofMap(posX,0,width,-1,1);
     wiggleMod2 = ofMap(posY,0,width,1,2);
+    
+     smoothLine = drawnLine.getSmoothed(5);
+    smoothLine = smoothLine.getResampledBySpacing(2);
 
 }
 //-----------------------------------------------
 void wobblyText::draw(){
     ofBackground(0, 0, 0);
+    
+    ofPushMatrix();
+    
+    for(int i =0 ; i < smoothLine.size(); i++){
+        float tempI = float(i);
+        ofFill();
+        ofSetColor(ofMap(sin(ofGetElapsedTimef()-.005*i),-1,1,0,70), ofMap(sin(ofGetElapsedTimef()-.01*i),-1,1,20,150), ofMap(sin(ofGetElapsedTimef()-.001*i),-1,1,30,120));
+
+        //ofDrawCircle(smoothLine[i], 3);
+        ofPoint wigglingPoint;
+        //ofPoint wiggleZ;
+        wigglingPoint.set(40*sin(.2*time-.05*tempI), 90*cos(.5*time-.01*tempI));
+        ofPoint newPoint = smoothLine[i]+wigglingPoint;
+        ofPushMatrix();
+        ofTranslate(newPoint);
+        ofDrawCircle(0, 0, 30+wiggleMod2*10*sin(ofGetElapsedTimef()-.01*tempI));
+        ofPopMatrix();
+
+    }
+    
+    //line.draw();
+    ofPopMatrix();
 
     ofPushMatrix();
     //ofTranslate (posX-width/2, posY);
@@ -81,7 +109,7 @@ void wobblyText::draw(){
             
             
             ofPoint wiggleZ;
-            wiggleZ.set(0,0,15*cos(ofGetElapsedTimef()-.05*j)+80*sin(.3*ofGetElapsedTimef()-.3*i));
+            wiggleZ.set(0,0,wiggleMod2*15*cos(ofGetElapsedTimef()-.05*j)+80*sin(.3*ofGetElapsedTimef()-.3*i));
             ofPoint newPoint = wordPoints[j]+wigglingPoint;
             ofPushMatrix();
             {
@@ -90,7 +118,7 @@ void wobblyText::draw(){
                 ofFill();
                 
 
-                ofDrawCircle(10*wiggleMod,  50* wiggleMod ,wiggleZ.z, 15+wiggleMod2*7*sin(ofGetElapsedTimef()-.1*tempJ));
+                ofDrawCircle(10*wiggleMod,  50* wiggleMod ,wiggleZ.z, 15+wiggleMod2*5*sin(ofGetElapsedTimef()-.1*tempJ));
                 
                 ofPoint basePoint;
                 
@@ -107,6 +135,8 @@ void wobblyText::draw(){
 //-----------------------------------------------
 void wobblyText::touchDown(ofTouchEventArgs & touch){
     
+    drawnLine.clear();
+    
     tempX = touch.x;
     tempY = touch.y;
 }
@@ -120,6 +150,9 @@ void wobblyText::touchUp(ofTouchEventArgs & touch){
 
 //-----------------------------------------------
 void wobblyText::touchMoved(ofTouchEventArgs & touch){
+    ofPoint drawnPoint;
+    drawnPoint.set(touch.x, touch.y);
+    drawnLine.addVertex(drawnPoint);
     
     tempX = touch.x;
     tempY = touch.y;

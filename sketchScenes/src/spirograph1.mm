@@ -14,7 +14,7 @@ void spirograph1::setup(){
     
     ofEnableAntiAliasing();
     counter = 0;
-    ofSetCircleResolution(50);
+    ofSetCircleResolution(20);
     ofBackground(0);
     //bSmooth = true;
     
@@ -94,7 +94,7 @@ void spirograph1::setup(){
 void spirograph1::update(){
     time = ofGetElapsedTimef();
     sinTime = sin(ofGetElapsedTimef());
-    
+    ofSetCircleResolution(20);
     
     posX = ofLerp(posX, tempX, .2);
     posY = ofLerp(posY, tempY, .2);

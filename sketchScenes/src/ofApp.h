@@ -7,6 +7,8 @@
 #include "ofxSceneManager.h"
 #include "wobblyText.h"
 #include "feathery.h"
+#include "meshStripText.h"
+#include "kaleidoscope.h"
 
 class ofApp : public ofxiOSApp{
     
