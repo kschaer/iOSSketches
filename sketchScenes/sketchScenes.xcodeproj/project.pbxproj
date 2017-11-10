@@ -17,6 +17,7 @@
 		400A7B491FB22A25008A966A /* kaleidoscope.mm in Sources */ = {isa = PBXBuildFile; fileRef = 400A7B481FB22A25008A966A /* kaleidoscope.mm */; };
 		404553BB1FB0D73200076C35 /* feathery.mm in Sources */ = {isa = PBXBuildFile; fileRef = 404553BA1FB0D73200076C35 /* feathery.mm */; };
 		404553C11FB1464A00076C35 /* meshStripText.mm in Sources */ = {isa = PBXBuildFile; fileRef = 404553C01FB1464A00076C35 /* meshStripText.mm */; };
+		40AABD191FB3BAF400A29B09 /* ballOfString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 40AABD181FB3BAF400A29B09 /* ballOfString.mm */; };
 		483FA4F6D5FA6422C559B1F5 /* ofxAssimpMeshHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F67FE68E327BEFBD4B777571 /* ofxAssimpMeshHelper.cpp */; };
 		513340A5EDC1BEBD78BF7571 /* ofxHersheyFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 093AA3624B220297E62C16F4 /* ofxHersheyFont.cpp */; };
 		5326AEA810A23A0500278DE6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5326AEA710A23A0500278DE6 /* CoreLocation.framework */; };
@@ -102,6 +103,8 @@
 		404553BC1FB0D73D00076C35 /* feathery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = feathery.h; sourceTree = "<group>"; };
 		404553BF1FB1463300076C35 /* meshStripText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = meshStripText.h; sourceTree = "<group>"; };
 		404553C01FB1464A00076C35 /* meshStripText.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = meshStripText.mm; sourceTree = "<group>"; };
+		40AABD151FB3B7B400A29B09 /* ballOfString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ballOfString.h; sourceTree = "<group>"; };
+		40AABD181FB3BAF400A29B09 /* ballOfString.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ballOfString.mm; sourceTree = "<group>"; };
 		41DBF41AB15D7C33CA52C05F /* NullLogger.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = NullLogger.hpp; path = ../../../addons/ofxAssimpModelLoader/libs/assimp/include/assimp/NullLogger.hpp; sourceTree = SOURCE_ROOT; };
 		42B5D460590D03DC3009F243 /* material.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = material.h; path = ../../../addons/ofxAssimpModelLoader/libs/assimp/include/assimp/material.h; sourceTree = SOURCE_ROOT; };
 		42D77E59A87937F5313E468D /* postprocess.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = postprocess.h; path = ../../../addons/ofxAssimpModelLoader/libs/assimp/include/assimp/postprocess.h; sourceTree = SOURCE_ROOT; };
@@ -500,6 +503,8 @@
 				404553C01FB1464A00076C35 /* meshStripText.mm */,
 				400A7B4A1FB22A31008A966A /* kaleidoscope.h */,
 				400A7B481FB22A25008A966A /* kaleidoscope.mm */,
+				40AABD151FB3B7B400A29B09 /* ballOfString.h */,
+				40AABD181FB3BAF400A29B09 /* ballOfString.mm */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -654,6 +659,7 @@
 				404553BB1FB0D73200076C35 /* feathery.mm in Sources */,
 				FE278F5F783581237AE8ECB2 /* ofxEasingSine.cpp in Sources */,
 				32FC7731C1EF7B87E491C93D /* ofxTween.cpp in Sources */,
+				40AABD191FB3BAF400A29B09 /* ballOfString.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

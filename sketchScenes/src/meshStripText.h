@@ -34,11 +34,30 @@ public:
     float tempX;
     float tempY;
     
+    ofRectangle boundingBox;
+    ofPolyline boundingLine;
+
+    string textureText;
+    ofTrueTypeFont textureFont;
+    ofRectangle fontBox;
+    float fontWidth;
+    float fontHeight;
+    ofFbo textFBO;
+    ofFbo oneFBO;
+    ofPoint textMover;
+    ofTexture charTexture;
+
+    
+    ofPoint rot;
+    
     ofxHersheyFont myFont;
+   // ofTrueTypeFont myFont;
+    
     ofPath myFontPath;
     ofPath outline;
     vector <vector <ofVec2f> > points;
     
+    ofImage myTextureImage;
     
     float distance;
     

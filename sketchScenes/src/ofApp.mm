@@ -3,15 +3,17 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+    
    // spiroText.setup();
-//    sceneManager.addScene(ofPtr<ofxScene>(new kaleidoscope)); //working,  NOT done
+   sceneManager.addScene(ofPtr<ofxScene>(new kaleidoscope)); //working,  NOT done
 //
-//    sceneManager.addScene(ofPtr<ofxScene>(new spirograph1)); // working, done
-//    sceneManager.addScene(ofPtr<ofxScene>(new wobblyText)); //working, done - may do more of these
-//    sceneManager.addScene(ofPtr<ofxScene>(new feathery)); //working, done- could be re-colored
+    sceneManager.addScene(ofPtr<ofxScene>(new spirograph1)); // working, done
+    sceneManager.addScene(ofPtr<ofxScene>(new wobblyText)); //working, done - may do more of these
+   sceneManager.addScene(ofPtr<ofxScene>(new feathery)); //working, done- could be re-colored
 //
     
-    sceneManager.addScene(ofPtr<ofxScene>(new meshStripText));
+    sceneManager.addScene(ofPtr<ofxScene>(new meshStripText)); //FIXED
+    sceneManager.addScene(ofPtr<ofxScene>(new ballOfString)); //just started
 
 
     //sceneManager.addScene(ofPtr<ofxScene>(new SecondScene));

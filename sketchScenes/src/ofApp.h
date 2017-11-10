@@ -9,6 +9,7 @@
 #include "feathery.h"
 #include "meshStripText.h"
 #include "kaleidoscope.h"
+#include "ballOfString.h"
 
 class ofApp : public ofxiOSApp{
     
