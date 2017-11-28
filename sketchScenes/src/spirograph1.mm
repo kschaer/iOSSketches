@@ -30,10 +30,10 @@ void spirograph1::setup(){
     lightness = 0;
     
     myText = "hello";
-    myFont.load("Avenir Next.ttc", 400, true,true,true);
+    myFont.load("OCRAStd.otf", 300, true,true,true);
     centerText.set(0,0);
     
-    spaceCount = 75;
+    spaceCount = 45;
     frameCount = 0;
     
     chaos1= 0;
@@ -104,7 +104,7 @@ void spirograph1::update(){
     centerText.set(posX-textBounding.width/2,posY+textBounding.height/2);
     
     
-    nextPointSpeed = .4;
+    nextPointSpeed = .2;
     
     
     frameCount = (int)(ofGetFrameNum()*nextPointSpeed);

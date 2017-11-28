@@ -10,7 +10,7 @@
 #include "meshStripText.h"
 #include "kaleidoscope.h"
 #include "ballOfString.h"
-
+#include "begin.h"
 class ofApp : public ofxiOSApp{
     
 public:

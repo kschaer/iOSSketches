@@ -17,6 +17,7 @@
 		400A7B491FB22A25008A966A /* kaleidoscope.mm in Sources */ = {isa = PBXBuildFile; fileRef = 400A7B481FB22A25008A966A /* kaleidoscope.mm */; };
 		404553BB1FB0D73200076C35 /* feathery.mm in Sources */ = {isa = PBXBuildFile; fileRef = 404553BA1FB0D73200076C35 /* feathery.mm */; };
 		404553C11FB1464A00076C35 /* meshStripText.mm in Sources */ = {isa = PBXBuildFile; fileRef = 404553C01FB1464A00076C35 /* meshStripText.mm */; };
+		409B39FC1FB652A6006CFA78 /* begin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 409B39FB1FB652A6006CFA78 /* begin.mm */; };
 		40AABD191FB3BAF400A29B09 /* ballOfString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 40AABD181FB3BAF400A29B09 /* ballOfString.mm */; };
 		483FA4F6D5FA6422C559B1F5 /* ofxAssimpMeshHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F67FE68E327BEFBD4B777571 /* ofxAssimpMeshHelper.cpp */; };
 		513340A5EDC1BEBD78BF7571 /* ofxHersheyFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 093AA3624B220297E62C16F4 /* ofxHersheyFont.cpp */; };
@@ -103,6 +104,8 @@
 		404553BC1FB0D73D00076C35 /* feathery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = feathery.h; sourceTree = "<group>"; };
 		404553BF1FB1463300076C35 /* meshStripText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = meshStripText.h; sourceTree = "<group>"; };
 		404553C01FB1464A00076C35 /* meshStripText.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = meshStripText.mm; sourceTree = "<group>"; };
+		409B39FB1FB652A6006CFA78 /* begin.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = begin.mm; sourceTree = "<group>"; };
+		409B39FE1FB65354006CFA78 /* begin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = begin.h; sourceTree = "<group>"; };
 		40AABD151FB3B7B400A29B09 /* ballOfString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ballOfString.h; sourceTree = "<group>"; };
 		40AABD181FB3BAF400A29B09 /* ballOfString.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ballOfString.mm; sourceTree = "<group>"; };
 		41DBF41AB15D7C33CA52C05F /* NullLogger.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = NullLogger.hpp; path = ../../../addons/ofxAssimpModelLoader/libs/assimp/include/assimp/NullLogger.hpp; sourceTree = SOURCE_ROOT; };
@@ -493,6 +496,8 @@
 				E4D8936B11527B74007E1F53 /* main.mm */,
 				E4D8936D11527B74007E1F53 /* ofApp.mm */,
 				E4D8936C11527B74007E1F53 /* ofApp.h */,
+				409B39FE1FB65354006CFA78 /* begin.h */,
+				409B39FB1FB652A6006CFA78 /* begin.mm */,
 				4FEAE62E326525E3B90ACEA6 /* spirograph1.h */,
 				FAFDF59C8C768D9B930B8448 /* spirograph1.mm */,
 				5D35773CD6228BB98A34C6C3 /* wobblyText.h */,
@@ -640,6 +645,7 @@
 				3B8120368B4FCCD80883BAF3 /* ofxAssimpAnimation.cpp in Sources */,
 				483FA4F6D5FA6422C559B1F5 /* ofxAssimpMeshHelper.cpp in Sources */,
 				8DED5056525646FA71980866 /* ofxAssimpModelLoader.cpp in Sources */,
+				409B39FC1FB652A6006CFA78 /* begin.mm in Sources */,
 				B8846EF8E504895A4A9EFEC0 /* ofxAssimpTexture.cpp in Sources */,
 				400A7B491FB22A25008A966A /* kaleidoscope.mm in Sources */,
 				513340A5EDC1BEBD78BF7571 /* ofxHersheyFont.cpp in Sources */,
@@ -683,7 +689,7 @@
 				GCC_PREFIX_HEADER = ofxiOS_Prefix.pch;
 				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = NO;
 				INFOPLIST_FILE = "ofxiOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				TARGETED_DEVICE_FAMILY = 2;
 				VALID_ARCHS = "$(ARCHS_STANDARD)";
@@ -698,7 +704,7 @@
 				GCC_PREFIX_HEADER = ofxiOS_Prefix.pch;
 				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = NO;
 				INFOPLIST_FILE = "ofxiOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				TARGETED_DEVICE_FAMILY = 2;
 				VALID_ARCHS = "$(ARCHS_STANDARD)";

@@ -32,8 +32,32 @@ void ballOfString::setup(){
     
     ofSetCircleResolution(120);
     
+    lines.clear();
+    line.clear();
     
     
+    for (int i = 0; i <100; i++){
+        line.addVertex(width*ofSignedNoise(i*ofGetElapsedTimef()*0.012412), width*ofSignedNoise(i*ofGetElapsedTimef()*0.008013), width*ofSignedNoise(i*ofGetElapsedTimef()*0.01231));
+    }
+//    for (int i = 0; i < lines.size(); i++){
+//        for(int j = 0; j< lines[i].getVertices().size(); j++){
+//            //            ofPoint pointys;
+//            //            pointys.set(lines[i].getResampledBySpacing(30).getVertices()[j]);
+//            ofPoint fromCenter = lines[i].getVertices()[j] - ofPoint(ofGetWidth()/2, ofGetHeight()/2);
+//
+//            // line.getSmoothed(3);
+//            ofPushMatrix();
+//            ofTranslate(width/2,height/2);
+//            float radius;
+//            radius = 5+5*sin(i+.08*j);
+//            ofSetColor(200+55*sin(time-.4*j));
+//            ofDrawCircle(fromCenter, radius);
+//
+//            ofPopMatrix();
+//
+//        }
+//
+//}
 }
 //--------------------------------------------------------------------
 
@@ -87,24 +111,46 @@ void ballOfString::update(){
     }
     
 
+
 }
 //--------------------------------------------------------------------
 
 void ballOfString::draw(){
+    
+    
+    
+    ofFill();
     ofSetColor(255,255,255);
     ofBackground(0,0,0);
     
-    ofDrawSphere(tempX,tempY,10);
+    //ofDrawSphere(tempX,tempY,10);
+//
+//    for(int i = 0; i <5; i++){
+//        for (int j = 0; j<5; j++){
+//            ofSeedRandom(100000*i*j);
+//            ofPoint randPoints;
+//            randPoints.set(ofRandom(50-j,width-50*i),ofRandom(50-j,height-50-i));
+//            ofDrawCircle(randPoints, ofRandom(3,10));
+//        }
+//    }
     
+    ofSetColor(80);
     line.draw();
     for (int i = 0; i < lines.size(); i++){
         for(int j = 0; j< lines[i].getVertices().size(); j++){
-            // ofDrawCircle(lines[i], 20);
 //            ofPoint pointys;
-//            pointys.set(lines[i].getResampledBySpacing(5).getVertices()[j]);
-//            
-//           // line.getSmoothed(3);
-//            ofDrawCircle(pointys,2);
+//            pointys.set(lines[i].getResampledBySpacing(30).getVertices()[j]);
+            ofPoint fromCenter = lines[i].getVertices()[j] - ofPoint(ofGetWidth()/2, ofGetHeight()/2);
+
+           // line.getSmoothed(3);
+            ofPushMatrix();
+            ofTranslate(width/2,height/2);
+            float radius;
+            radius = 5+5*sin(time+.18*j);
+            ofSetColor(200+55*sin(time-.4*j));
+            ofDrawCircle(fromCenter, radius);
+            
+            ofPopMatrix();
             
         }
 
@@ -115,7 +161,7 @@ void ballOfString::touchDown(ofTouchEventArgs & touch){
     tempX = touch.x;
     tempY = touch.y;
     line.clear();
-    lines.clear();
+ //   lines.clear();
     
 
     
@@ -140,8 +186,9 @@ void ballOfString::touchMoved(ofTouchEventArgs & touch){
     tempAngle = acos(ofDist(width/2, height/2, width/2, touch.y) / ofDist(width/2, height/2, touch.x, touch.y))*(180/PI);
     
     for (int i = 0; i < 5; i++){
-        ofSeedRandom(touch.x*100000);
-    line.addVertex(ofPoint(touch.x+ofRandom(-10,50)*i*sin(time),touch.y-ofRandom(-3,3)));
+       // ofSeedRandom(touch.x*100000);
+   // line.addVertex(ofPoint(touch.x+ofRandom(-10,50)*i*sin(time),touch.y-ofRandom(-3,3)));
+        line.addVertex(ofPoint(touch.x,touch.y));
     }
 
 }

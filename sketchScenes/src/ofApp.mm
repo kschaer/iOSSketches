@@ -5,6 +5,7 @@ void ofApp::setup(){
     
     
    // spiroText.setup();
+    sceneManager.addScene(ofPtr<ofxScene>(new beginningScene)); // startscene
    sceneManager.addScene(ofPtr<ofxScene>(new kaleidoscope)); //working,  NOT done
 //
     sceneManager.addScene(ofPtr<ofxScene>(new spirograph1)); // working, done
